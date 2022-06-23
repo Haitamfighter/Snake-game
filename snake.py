@@ -39,13 +39,15 @@ class Snake:
         elif self.direction == "left":
             self.head.x -= self.speed
 
+        # In the 23/6/2022, I returned to this part of code to fix a little bug
+        #  Good Job, and keep going buddy you doing well!
         if self.head.x < 0:
-            self.head.x = WIDTH
-        elif self.head.x > WIDTH:
+            self.head.midright = (WIDTH, self.head.midright[1])
+        elif self.head.x >= WIDTH:
             self.head.x = 0
         if self.head.y < 0:
-            self.head.y = HEIGHT
-        elif self.head.y > HEIGHT:
+            self.head.midbottom = (self.head.midbottom[0], HEIGHT)
+        elif self.head.y >= HEIGHT:
             self.head.y = 0
 
     def move(self):
